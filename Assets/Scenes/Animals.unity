@@ -378,11 +378,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1335800587}
     m_Modifications:
-    - target: {fileID: 114270480491825764, guid: ef6bad38d429f034198c0231394c72db,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224542248099749570, guid: ef6bad38d429f034198c0231394c72db,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -473,38 +468,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114270480491825764, guid: ef6bad38d429f034198c0231394c72db,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114270480491825764, guid: ef6bad38d429f034198c0231394c72db,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114270480491825764, guid: ef6bad38d429f034198c0231394c72db,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114389766875156280, guid: ef6bad38d429f034198c0231394c72db,
-        type: 2}
-    - target: {fileID: 114270480491825764, guid: ef6bad38d429f034198c0231394c72db,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: flipEmote
-      objectReference: {fileID: 0}
-    - target: {fileID: 114270480491825764, guid: ef6bad38d429f034198c0231394c72db,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 114135258474008452, guid: ef6bad38d429f034198c0231394c72db,
         type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300014, guid: 6bc7e463a914aaf4ab2339fd47a259cb,
-        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef6bad38d429f034198c0231394c72db, type: 2}
   m_IsPrefabParent: 0
@@ -872,13 +840,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 870686562}
   memosFace: []
-  memosBack: {fileID: 0}
   memos: []
   matches: {fileID: 1901903771}
   memoPrefab: {fileID: 1615587228942654, guid: ef6bad38d429f034198c0231394c72db, type: 2}
   boardSize: 20
   clock: {fileID: 1605734840}
-  sheetToLoad: animals
+  sheetToLoad: 
 --- !u!4 &1576839399
 Transform:
   m_ObjectHideFlags: 0

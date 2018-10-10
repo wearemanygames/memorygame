@@ -8,15 +8,16 @@ using UnityEngine.UI;
 public class Memo : MonoBehaviour {
 
     public static bool freezed = false;
+    public bool chosen = false;
 
     private int _state;
-    private int _emoteValue;
+    private int _memoValue;
     private bool _initialized;
 
     private Sprite _emoteBack;
     private Sprite _emoteFace;
 
-    private static GameObject _manager;
+    private static GameManager _manager;
 
     public int state
     {
@@ -26,8 +27,8 @@ public class Memo : MonoBehaviour {
 
     public int emoteValue
     {
-        get {return _emoteValue;}
-        set {_emoteValue = value;}
+        get {return _memoValue;}
+        set {_memoValue = value;}
     }
 
     public bool initialized
@@ -39,20 +40,21 @@ public class Memo : MonoBehaviour {
     void Start()
     {
         _state = 0;
-        _manager = GameObject.FindGameObjectWithTag("Manager");
+        if(_manager == null)
+            _manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
     }
 
     public void setupGraphics()
     {
-        _emoteBack = _manager.GetComponent<GameManager>().getEmoteBack();
-        _emoteFace = _manager.GetComponent<GameManager>().getEmoteFace(_emoteValue);
+        _emoteBack = _manager.getEmoteBack();
+        _emoteFace = _manager.getEmoteFace(_memoValue);
 
         flipEmote();
     }
 
     public void flipEmote()
     {
-        if (!freezed)
+        if (!freezed && !chosen)
         {
             if (_state == 0)
                 _state = 1;

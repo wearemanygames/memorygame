@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour {
 
     public GameObject winMenu;
     public Sprite[] memosFace;
-    public Sprite memosBack;
     public GameObject[] memos;
     public Text matches;
     public GameObject memoPrefab;
@@ -22,15 +21,16 @@ public class GameManager : MonoBehaviour {
     public GameObject clock;
     public string sheetToLoad;
 
-    private List<Sprite> memosSprites;
     private LevelResult _levelResult;
+    private Sprite memosBack;
 
-    int boardCurrentXSpot = 0;
-    int boardCurrentYSpot = 0;
-    int boardBeginX = -250;
-    int boardEndX = 260;
-    int boardFirstLineY = 250;
-    int boardSecondLineY = -90;
+    private int boardCurrentXSpot = 0;
+    private int boardCurrentYSpot = 0;
+    private int boardBeginX = -250;
+    private int boardEndX = 260;
+    private int boardFirstLineY = 250;
+
+    private int winCondition = 0;
 
     private void Update()
     {
@@ -82,7 +82,10 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < memos.Length; i++)
         {
             if (memos[i].GetComponent<Memo>().state == 1)
+            {
                 c.Add(i);
+                memos[i].GetComponent<Memo>().chosen = true;
+            }
         }
 
         if (c.Count == 2)
@@ -92,18 +95,22 @@ public class GameManager : MonoBehaviour {
     private void emoteComparison(List<int> c)
     {
         Memo.freezed = true;
+
         int x = 0;
 
-        Memo emote1 = memos[c[0]].GetComponent<Memo>();
-        Memo emote2 = memos[c[1]].GetComponent<Memo>();
+        Memo memo1 = memos[c[0]].GetComponent<Memo>();
+        Memo memo2 = memos[c[1]].GetComponent<Memo>();
 
-        if (emote1.emoteValue == emote2.emoteValue)
+        memo1.chosen = false;
+        memo2.chosen = false;
+
+        if (memo1.emoteValue == memo2.emoteValue)
         {
             x = 2;
             _matchesGoal--;
             matches.text = "Matches Lefting: " + _matchesGoal;
 
-            if (_matchesGoal == 9)
+            if (_matchesGoal == winCondition)
             {
                 //Winner!
                 clock.GetComponent<Clock>().turnOff();
@@ -209,13 +216,13 @@ public class GameManager : MonoBehaviour {
         memosBack = allMemosSheet[0];
     }
 
-    private void setMemosSprites(Sprite[] allEmotesSheet)
+    private void setMemosSprites(Sprite[] allMemosSheet)
     {      
         memosFace = new Sprite[boardSize/2];
         for (int i = 0; i < boardSize/2; i++)
         {
             int position = i + 1;
-            memosFace[i] = allEmotesSheet[position];
+            memosFace[i] = allMemosSheet[position];
         }
     }
 
