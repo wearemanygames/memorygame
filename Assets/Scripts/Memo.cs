@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +12,8 @@ public class Memo : MonoBehaviour {
     private int _memoValue;
     private bool _initialized;
 
-    private Sprite _emoteBack;
-    private Sprite _emoteFace;
-
-    private static GameManager _manager;
+    private Sprite _memoBack;
+    private Sprite _memoFace;
 
     public int state
     {
@@ -25,7 +21,7 @@ public class Memo : MonoBehaviour {
         set {_state = value;}
     }
 
-    public int emoteValue
+    public int memoValue
     {
         get {return _memoValue;}
         set {_memoValue = value;}
@@ -40,19 +36,17 @@ public class Memo : MonoBehaviour {
     void Start()
     {
         _state = 0;
-        if(_manager == null)
-            _manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
     }
 
-    public void setupGraphics()
+    public void setupGraphics(GameManager manager)
     {
-        _emoteBack = _manager.getEmoteBack();
-        _emoteFace = _manager.getEmoteFace(_memoValue);
+        _memoBack = manager.getEmoteBack();
+        _memoFace = manager.getEmoteFace(_memoValue);
 
-        flipEmote();
+        flipMemo();
     }
 
-    public void flipEmote()
+    public void flipMemo()
     {
         if (!freezed && !chosen)
         {
@@ -62,9 +56,9 @@ public class Memo : MonoBehaviour {
                 _state = 0;
 
             if (_state == 0 && !freezed)
-                GetComponent<Image>().sprite = _emoteBack;
+                GetComponent<Image>().sprite = _memoBack;
             else if (_state == 1 && !freezed)
-                GetComponent<Image>().sprite = _emoteFace;
+                GetComponent<Image>().sprite = _memoFace;
         }
     }
 
@@ -77,9 +71,9 @@ public class Memo : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
         if (_state == 0)
-            GetComponent<Image>().sprite = _emoteBack;
+            GetComponent<Image>().sprite = _memoBack;
         else if (_state == 1)
-            GetComponent<Image>().sprite = _emoteFace;
+            GetComponent<Image>().sprite = _memoFace;
         freezed = false;
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Clock : MonoBehaviour {
@@ -20,17 +18,22 @@ public class Clock : MonoBehaviour {
         _isOn = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_isOn)
         {
-            if (_timeInMillis >= _timeInSeconds) //update text counter per second, not per frame
-            {
-                _timeText.text = "Elapsed Time: " + _timeInSeconds;
-                _timeInSeconds++;
-            }
-            _timeInMillis += Time.deltaTime;
+            updateElapsedTime();
         }
+    }
+
+    private void updateElapsedTime()
+    {
+        //evitando updates desnecessários
+        if (_timeInMillis >= _timeInSeconds)
+        {
+            _timeText.text = "Elapsed Time: " + _timeInSeconds;
+            _timeInSeconds++;
+        }
+        _timeInMillis += Time.deltaTime;
     }
 }

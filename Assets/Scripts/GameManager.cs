@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -52,13 +50,13 @@ public class GameManager : MonoBehaviour {
                     choice = UnityEngine.Random.Range(0, memos.Length);
                     test = !(memos[choice].GetComponent<Memo>().initialized);
                 }
-                memos[choice].GetComponent<Memo>().emoteValue = i;
+                memos[choice].GetComponent<Memo>().memoValue = i;
                 memos[choice].GetComponent<Memo>().initialized = true;
             }
 
             foreach (GameObject c in memos)
             {
-                c.GetComponent<Memo>().setupGraphics();
+                c.GetComponent<Memo>().setupGraphics(this);
             }
 
             if (!_init)
@@ -104,7 +102,7 @@ public class GameManager : MonoBehaviour {
         memo1.chosen = false;
         memo2.chosen = false;
 
-        if (memo1.emoteValue == memo2.emoteValue)
+        if (memo1.memoValue == memo2.memoValue)
         {
             x = 2;
             _matchesGoal--;
