@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114135258474008452}
   - component: {fileID: 114270480491825764}
   m_Layer: 5
-  m_Name: MemoPiece
+  m_Name: MemoPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

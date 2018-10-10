@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Emote : MonoBehaviour {
+public class Memo : MonoBehaviour {
 
     public static bool freezed = false;
 

@@ -13,16 +13,16 @@ public class GameManager : MonoBehaviour {
     private int _matchesGoal = 0;
 
     public GameObject winMenu;
-    public Sprite[] emotesFace;
-    public Sprite emoteBack;
-    public GameObject[] emotes;
+    public Sprite[] memosFace;
+    public Sprite memosBack;
+    public GameObject[] memos;
     public Text matches;
-    public GameObject emotePrefab;
+    public GameObject memoPrefab;
     public int boardSize = 20;
+    public GameObject clock;
+    public string sheetToLoad;
 
-    private Sprite[] allEmotesSheet;
-    private List<Sprite> emotesSprites;
-
+    private List<Sprite> memosSprites;
     private LevelResult _levelResult;
 
     int boardCurrentXSpot = 0;
@@ -34,14 +34,11 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        //if (_init)
-            //initializeCards();
-
         if (Input.GetMouseButtonUp(0))
-            checkEmotes();
+            checkMemos();
     }
 
-    private void initializeCards()
+    private void initializeMemos()
     {
         for (int id = 0; id < 2; id++)
         {
@@ -52,16 +49,16 @@ public class GameManager : MonoBehaviour {
 
                 while (!test)
                 {
-                    choice = UnityEngine.Random.Range(0, emotes.Length);
-                    test = !(emotes[choice].GetComponent<Emote>().initialized);
+                    choice = UnityEngine.Random.Range(0, memos.Length);
+                    test = !(memos[choice].GetComponent<Memo>().initialized);
                 }
-                emotes[choice].GetComponent<Emote>().emoteValue = i;
-                emotes[choice].GetComponent<Emote>().initialized = true;
+                memos[choice].GetComponent<Memo>().emoteValue = i;
+                memos[choice].GetComponent<Memo>().initialized = true;
             }
 
-            foreach (GameObject c in emotes)
+            foreach (GameObject c in memos)
             {
-                c.GetComponent<Emote>().setupGraphics();
+                c.GetComponent<Memo>().setupGraphics();
             }
 
             if (!_init)
@@ -71,20 +68,20 @@ public class GameManager : MonoBehaviour {
 
     public Sprite getEmoteBack()
     {
-        return emoteBack;
+        return memosBack;
     }
 
     public Sprite getEmoteFace(int position)
     {
-        return emotesFace[position];
+        return memosFace[position];
     }
 
-    void checkEmotes()
+    void checkMemos()
     {
         List<int> c = new List<int>();
-        for (int i = 0; i < emotes.Length; i++)
+        for (int i = 0; i < memos.Length; i++)
         {
-            if (emotes[i].GetComponent<Emote>().state == 1)
+            if (memos[i].GetComponent<Memo>().state == 1)
                 c.Add(i);
         }
 
@@ -94,11 +91,11 @@ public class GameManager : MonoBehaviour {
 
     private void emoteComparison(List<int> c)
     {
-        Emote.freezed = true;
+        Memo.freezed = true;
         int x = 0;
 
-        Emote emote1 = emotes[c[0]].GetComponent<Emote>();
-        Emote emote2 = emotes[c[1]].GetComponent<Emote>();
+        Memo emote1 = memos[c[0]].GetComponent<Memo>();
+        Memo emote2 = memos[c[1]].GetComponent<Memo>();
 
         if (emote1.emoteValue == emote2.emoteValue)
         {
@@ -109,14 +106,15 @@ public class GameManager : MonoBehaviour {
             if (_matchesGoal == 9)
             {
                 //Winner!
+                clock.GetComponent<Clock>().turnOff();
                 StartCoroutine(SendScore());
             }
         }
 
         for (int i = 0; i < c.Count; i++)
         {
-            emotes[c[i]].GetComponent<Emote>().state = x;
-            emotes[c[i]].GetComponent<Emote>().falseCheck();
+            memos[c[i]].GetComponent<Memo>().state = x;
+            memos[c[i]].GetComponent<Memo>().falseCheck();
         }
     }
 
@@ -144,7 +142,8 @@ public class GameManager : MonoBehaviour {
 
     private int ComputeScore()
     {
-        return boardSize;
+        int timeScore = clock.GetComponent<Clock>().elapsedTime;
+        return timeScore * boardSize;
     }
 
     private static UnityWebRequest createApiRequest(string json)
@@ -162,42 +161,61 @@ public class GameManager : MonoBehaviour {
         return json;
     }
 
-    // Use this for initialization
+    // Board Setup
     void Start ()
     {
+        Sprite[] allMemosSheet = loadAllSprites();
 
-        allEmotesSheet = Resources.LoadAll<Sprite>("animals");
+        setMemosSprites(allMemosSheet);
+        setMemoDefaultBack(allMemosSheet);
 
-        setEmotesSprites(allEmotesSheet);
-        setDefaultBackSprite();
+        memos = new GameObject[boardSize];
+        createAndPlotMemos();
+        drawMatchesFeedbackOnScreen();
+        initializeMemos();
+    }
 
-        emotes = new GameObject[boardSize];
-       
+    private void drawMatchesFeedbackOnScreen()
+    {
+        _matchesGoal = memos.Length / 2;
+        matches.text = "Matches Lefting: " + _matchesGoal;
+    }
+
+    private void createAndPlotMemos()
+    {
         boardCurrentXSpot = boardBeginX;
         boardCurrentYSpot = boardFirstLineY;
         for (int i = 0; i < boardSize; i++)
         {
             Vector3 currentPosition = getCoordinatesXY();
-            emotes[i] = Instantiate(emotePrefab, Vector2.zero, Quaternion.identity);
-            setPosition(emotes[i], currentPosition);
+            memos[i] = Instantiate(memoPrefab, Vector2.zero, Quaternion.identity);
+            setPosition(memos[i], currentPosition);
         }
-        _matchesGoal = emotes.Length / 2;
-        matches.text = "Matches Lefting: " + _matchesGoal;
-        initializeCards();
     }
 
-    private void setDefaultBackSprite()
+    private Sprite[] loadAllSprites()
     {
-        emoteBack = allEmotesSheet[0];
+        if (sheetToLoad == null || sheetToLoad == "")
+            sheetToLoad = "animals";
+
+        Sprite[] allMemosSheet;
+
+        allMemosSheet = Resources.LoadAll<Sprite>(sheetToLoad);
+        return allMemosSheet;
     }
 
-    private void setEmotesSprites(Sprite[] allEmotesSheet)
+    private void setMemoDefaultBack(Sprite[] allMemosSheet)
+    {
+        memosBack = allMemosSheet[0];
+    }
+
+    private void setMemosSprites(Sprite[] allEmotesSheet)
     {      
-        emotesFace = new Sprite[boardSize/2];
+        memosFace = new Sprite[boardSize/2];
         for (int i = 0; i < boardSize/2; i++)
         {
             int position = i + 1;
-            emotesFace[i] = allEmotesSheet[position];
+            memosFace[i] = allEmotesSheet[position];
         }
     }
 
