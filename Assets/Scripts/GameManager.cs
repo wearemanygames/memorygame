@@ -149,8 +149,9 @@ public class GameManager : MonoBehaviour {
 
     private int ComputeScore()
     {
-        int timeScore = clock.GetComponent<Clock>().elapsedTime;
-        return timeScore * boardSize;
+        int time = clock.GetComponent<Clock>().elapsedTime;
+        int finalScore = boardSize * 20 - time;
+        return finalScore;
     }
 
     private static UnityWebRequest createApiRequest(string json)

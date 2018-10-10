@@ -244,7 +244,7 @@ Camera:
   far clip plane: 1000
   field of view: 67.3
   orthographic: 1
-  orthographic size: 400
+  orthographic size: 402
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -845,7 +845,7 @@ MonoBehaviour:
   memoPrefab: {fileID: 1615587228942654, guid: ef6bad38d429f034198c0231394c72db, type: 2}
   boardSize: 20
   clock: {fileID: 1605734840}
-  sheetToLoad: 
+  sheetToLoad: animals
 --- !u!4 &1576839399
 Transform:
   m_ObjectHideFlags: 0

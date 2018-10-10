@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8a8af617d66c28c4ba9208533dee21b4
-timeCreated: 1538407802
+timeCreated: 1539183908
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -34,6 +34,36 @@ TextureImporter:
     21300054: vector_style1_27
     21300056: vector_style1_28
     21300058: vector_style1_29
+    21300060: emotes_0
+    21300062: emotes_1
+    21300064: emotes_2
+    21300066: emotes_3
+    21300068: emotes_4
+    21300070: emotes_5
+    21300072: emotes_6
+    21300074: emotes_7
+    21300076: emotes_8
+    21300078: emotes_9
+    21300080: emotes_10
+    21300082: emotes_11
+    21300084: emotes_12
+    21300086: emotes_13
+    21300088: emotes_14
+    21300090: emotes_15
+    21300092: emotes_16
+    21300094: emotes_17
+    21300096: emotes_18
+    21300098: emotes_19
+    21300100: emotes_20
+    21300102: emotes_21
+    21300104: emotes_22
+    21300106: emotes_23
+    21300108: emotes_24
+    21300110: emotes_25
+    21300112: emotes_26
+    21300114: emotes_27
+    21300116: emotes_28
+    21300118: emotes_29
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -140,7 +170,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vector_style1_0
+      name: emotes_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,7 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_1
+      name: emotes_1
       rect:
         serializedVersion: 2
         x: 32
@@ -168,7 +198,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_2
+      name: emotes_2
       rect:
         serializedVersion: 2
         x: 64
@@ -182,7 +212,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_3
+      name: emotes_3
       rect:
         serializedVersion: 2
         x: 96
@@ -196,7 +226,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_4
+      name: emotes_4
       rect:
         serializedVersion: 2
         x: 128
@@ -210,7 +240,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_5
+      name: emotes_5
       rect:
         serializedVersion: 2
         x: 160
@@ -224,7 +254,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_6
+      name: emotes_6
       rect:
         serializedVersion: 2
         x: 192
@@ -238,7 +268,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_7
+      name: emotes_7
       rect:
         serializedVersion: 2
         x: 224
@@ -252,7 +282,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_8
+      name: emotes_8
       rect:
         serializedVersion: 2
         x: 256
@@ -266,7 +296,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_9
+      name: emotes_9
       rect:
         serializedVersion: 2
         x: 288
@@ -280,7 +310,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_10
+      name: emotes_10
       rect:
         serializedVersion: 2
         x: 0
@@ -294,7 +324,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_11
+      name: emotes_11
       rect:
         serializedVersion: 2
         x: 32
@@ -308,7 +338,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_12
+      name: emotes_12
       rect:
         serializedVersion: 2
         x: 64
@@ -322,7 +352,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_13
+      name: emotes_13
       rect:
         serializedVersion: 2
         x: 96
@@ -336,7 +366,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_14
+      name: emotes_14
       rect:
         serializedVersion: 2
         x: 128
@@ -350,7 +380,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_15
+      name: emotes_15
       rect:
         serializedVersion: 2
         x: 160
@@ -364,7 +394,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_16
+      name: emotes_16
       rect:
         serializedVersion: 2
         x: 192
@@ -378,7 +408,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_17
+      name: emotes_17
       rect:
         serializedVersion: 2
         x: 224
@@ -392,7 +422,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_18
+      name: emotes_18
       rect:
         serializedVersion: 2
         x: 256
@@ -406,7 +436,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_19
+      name: emotes_19
       rect:
         serializedVersion: 2
         x: 288
@@ -420,7 +450,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_20
+      name: emotes_20
       rect:
         serializedVersion: 2
         x: 0
@@ -434,7 +464,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_21
+      name: emotes_21
       rect:
         serializedVersion: 2
         x: 32
@@ -448,7 +478,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_22
+      name: emotes_22
       rect:
         serializedVersion: 2
         x: 64
@@ -462,7 +492,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_23
+      name: emotes_23
       rect:
         serializedVersion: 2
         x: 96
@@ -476,7 +506,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_24
+      name: emotes_24
       rect:
         serializedVersion: 2
         x: 128
@@ -490,7 +520,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_25
+      name: emotes_25
       rect:
         serializedVersion: 2
         x: 160
@@ -504,7 +534,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_26
+      name: emotes_26
       rect:
         serializedVersion: 2
         x: 192
@@ -518,7 +548,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_27
+      name: emotes_27
       rect:
         serializedVersion: 2
         x: 224
@@ -532,7 +562,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_28
+      name: emotes_28
       rect:
         serializedVersion: 2
         x: 256
@@ -546,7 +576,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vector_style1_29
+      name: emotes_29
       rect:
         serializedVersion: 2
         x: 288
